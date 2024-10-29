@@ -11,5 +11,14 @@ void cat(char *fileName);
 // Consumes a file name and copies it to a new file
 void cp(char *fileName, char *newFileName);
 
-// Outputs the list of files at the current directory.
-void ls(DIR* currentDir); 
+/*****************
+ * void ls(DIR*)
+ * Consumes a directory pointer and outputs its contents to the console.
+ * param1: Pointer to our directory.
+ *
+ * 
+ * 
+ * Source:
+ * https://medium.com/@codingcamel/learning-in-public-coding-ls-in-c-part-2-3dd1f78dacfc
+ *****************/
+void ls(DIR*); 
