@@ -20,3 +20,24 @@ void cat(char* fileName) {
 
 	fclose(file); 
 }
+
+void nl(char* fileNames[], int size) {
+
+	int masterCount = 0;
+	for (int i = 0; i < size; i++) {
+		FILE *file = fopen(fileNames[i], "r");
+
+		int count = 0;
+
+		char buffer[1024];
+
+		while ((fgets(buffer, sizeof(buffer), file)) != NULL) {
+			count++; 
+		}
+
+		masterCount += count;
+		printf("There are %d lines in %s", count, fileNames[i]);
+	}
+
+	printf("%d files processed, %d lines read", size, masterCount); 
+}
