@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <dirent.h>
 
 // Consumes an array of file names and outputs the number of lines in them.
 void nl(char *fileNames[]);
@@ -11,4 +12,4 @@ void cat(char *fileName);
 void cp(char *fileName, char *newFileName);
 
 // Outputs the list of files at the current directory.
-void ls(); 
+void ls(DIR* currentDir); 
