@@ -8,3 +8,15 @@ void ls(DIR *currentDir) {
 		printf("%s\t%d bytes\n", dir_read->d_name, dir_read->d_reclen);
 	}
 }
+
+void cat(char* fileName) {
+	FILE *file = fopen(fileName, "r");
+
+	char buffer[1024];
+
+	while ((fgets(buffer, sizeof(buffer), file)) != NULL) {
+		printf("%s\n", buffer); 
+	}
+
+	fclose(file); 
+}

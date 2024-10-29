@@ -16,4 +16,6 @@ int main(int argc, char* argv[]) {
 	ls(myDir);
 
 	closedir(myDir);
+
+	cat("test.txt");
 }
