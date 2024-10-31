@@ -21,6 +21,20 @@ void cat(char* fileName) {
 	fclose(file); 
 }
 
+void cp(char* fileName, char* newFileName) {
+	FILE *oldFile = fopen(fileName, "r");
+	FILE *newFile = fopen(newFileName, "w");
+
+	char buffer[1024];
+
+	while((fgets(buffer, sizeof(buffer), oldFile)) != NULL) {
+		fprintf(newFile, "%s\n", buffer); 
+	}
+
+	fclose(oldFile);
+	fclose(newFile); 
+}
+
 void nl(char* fileNames[], unsigned int size) {
 
 	int masterCount = 0;
