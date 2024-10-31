@@ -21,7 +21,7 @@ void cat(char* fileName) {
 	fclose(file); 
 }
 
-void nl(char* fileNames[], int size) {
+void nl(char* fileNames[], unsigned int size) {
 
 	int masterCount = 0;
 	for (int i = 0; i < size; i++) {

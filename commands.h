@@ -2,8 +2,29 @@
 #include <stdlib.h>
 #include <dirent.h>
 
-// Consumes an array of file names and outputs the number of lines in them.
-void nl(char *fileNames[], int size);
+
+
+/***********************
+ * void nl (char*[], unsigned int)
+ * Consumes an array of file
+ * names and an unsigned integer 
+ * with the size of this array.
+ * 
+ * Outputs the number of lines 
+ * in each file to the terminal
+ * and a total number of lines
+ * read at the end. 
+ * 
+ * param1: Array containing 
+ * the strings with the file 
+ * names.
+ * 
+ * param2: Unsigned integer
+ * with the size of the array
+ * since C is stupid.
+ * 
+ ***********************/
+void nl(char *fileNames[], unsigned int size);
 
 /***********************
  * void cat(char*)
