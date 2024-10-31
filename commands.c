@@ -9,33 +9,43 @@ void ls(DIR *currentDir) {
 	}
 }
 
-void cat(char* fileName) {
+void cat(char *fileName) {
 	FILE *file = fopen(fileName, "r");
 
 	char buffer[1024];
 
 	while ((fgets(buffer, sizeof(buffer), file)) != NULL) {
-		printf("%s\n", buffer); 
+		printf("%s", buffer);
 	}
 
-	fclose(file); 
+	fclose(file);
 }
 
-void cp(char* fileName, char* newFileName) {
+void cp(char *fileName, char *newFileName) {
 	FILE *oldFile = fopen(fileName, "r");
+	if (oldFile == NULL) { // Check if the source file was opened successfully
+		printf("Error: Could not open file %s for reading.\n", fileName);
+		return;
+	}
+
 	FILE *newFile = fopen(newFileName, "w");
+	if (newFile == NULL) { // Check if the destination file was opened successfully
+		printf("Error: Could not open file %s for writing.\n", newFileName);
+		fclose(oldFile); // Close the source file before returning
+		return;
+	}
 
 	char buffer[1024];
 
-	while((fgets(buffer, sizeof(buffer), oldFile)) != NULL) {
-		fprintf(newFile, "%s\n", buffer); 
+	while ((fgets(buffer, sizeof(buffer), oldFile)) != NULL) {
+		fprintf(newFile, "%s", buffer);
 	}
 
 	fclose(oldFile);
-	fclose(newFile); 
+	fclose(newFile);
 }
 
-void nl(char* fileNames[], unsigned int size) {
+void nl(char *fileNames[], unsigned int size) {
 
 	int masterCount = 0;
 	for (int i = 0; i < size; i++) {
@@ -51,12 +61,12 @@ void nl(char* fileNames[], unsigned int size) {
 		char buffer[1024];
 
 		while ((fgets(buffer, sizeof(buffer), file)) != NULL) {
-			count++; 
+			count++;
 		}
 
 		masterCount += count;
 		printf("There are %d lines in %s", count, fileNames[i]);
 	}
 
-	printf("%d files processed, %d lines read", size, masterCount); 
+	printf("%d files processed, %d lines read", size, masterCount);
 }
