@@ -27,6 +27,11 @@ void nl(char* fileNames[], int size) {
 	for (int i = 0; i < size; i++) {
 		FILE *file = fopen(fileNames[i], "r");
 
+		if (file == NULL) { // Check if the file was opened successfully
+			printf("Error: Could not open file %s\n", fileNames[i]);
+			continue; // Skip to the next file if this one couldn't be opened
+		}
+
 		int count = 0;
 
 		char buffer[1024];
