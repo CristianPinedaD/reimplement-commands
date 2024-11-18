@@ -25,6 +25,9 @@ int main(int argc, char* argv[]) {
 	fscanf("user@computer$",&command, &argument);
 
 	if (command == "ls") {
-		
+		ls(argument);
+	}
+	if (command == "cat") {
+		cat(argument); 
 	}
 }
