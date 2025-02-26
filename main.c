@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 	char command[200]; 
 	char argument[200]; 
 
-	fscanf("user@computer$",&command, &argument);
+	fscanf("user@computer$ ",&command, &argument);
 
 	if (command == "ls") {
 		ls(argument);
